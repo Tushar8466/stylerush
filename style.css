@@ -30,7 +30,7 @@ nav {
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-    transition: transform 1s ease;
+    transition: transform 0.9s ease;
 }
 
 .logo:hover {
