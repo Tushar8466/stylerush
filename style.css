@@ -1,3 +1,38 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --nav-bg: #000000;
+    --card-bg: #ffffff;
+    --accent-color: #DA291C;
+    --secondary-bg: #0a0a0a;
+}
+
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --nav-bg: #ffffff;
+    --card-bg: #f8f8f8;
+    --secondary-bg: #f0f0f0;
+}
+
+.light-theme .logo {
+    filter: invert(1);
+}
+
+.light-theme .btn-shop {
+    background-color: #000;
+    color: #fff;
+}
+
+.light-theme .card {
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.light-theme .hero-para {
+    color: #444;
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -5,27 +40,29 @@
 }
 
 body {
-    background-color: black;
+    background-color: var(--bg-color);
     font-family: 'Inter', sans-serif;
-    color: white;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav {
     height: 140px;
     width: 100%;
-    background-color: black;
+    background-color: var(--nav-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 10;
     padding: 0 50px;
+    transition: background-color 0.3s ease;
 }
 
 .logo {
     height: 130px;
     width: 130px;
-    background-image: url(stylerush-logo.png);
+    background-image: url(assets/logo/stylerush-logo.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -40,6 +77,7 @@ nav {
 nav ul {
     display: flex;
     gap: 40px;
+    align-items: center;
 }
 
 nav ul li {
@@ -48,13 +86,12 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
-    padding-bottom: 5px;
     transition: color 0.3s ease;
 }
 
@@ -63,7 +100,7 @@ nav ul li a::after {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
+    bottom: -5px;
     left: 0;
     background-color: #DA291C;
     transition: width 0.3s ease;
@@ -77,13 +114,41 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle:hover {
+    background-color: rgba(128, 128, 128, 0.15);
+    transform: rotate(30deg) scale(1.1);
+}
+
+.light-theme .sun {
+    display: none;
+}
+
+.light-theme .moon {
+    display: block !important;
+}
+
 /* Hero Section */
 .hero {
     height: 90vh;
     width: 100%;
     position: relative;
     overflow: hidden;
-    background: black;
+    background: var(--bg-color);
+    transition: background-color 0.3s ease;
 }
 
 .slider {
@@ -241,7 +306,8 @@ nav ul li a:hover::after {
     overflow: hidden;
     padding: 60px 0;
     position: relative;
-    background: black;
+    background: var(--bg-color);
+    transition: background-color 0.3s ease;
     mask-image: linear-gradient(to right,
             transparent,
             black 10%,
@@ -305,7 +371,8 @@ nav ul li a:hover::after {
 /* Categories Section */
 .categories {
     padding: 100px 50px;
-    background-color: black;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
 }
 
 .category-grid {
@@ -383,16 +450,18 @@ nav ul li a:hover::after {
 /* Trending Section */
 .trending {
     padding: 100px 50px;
-    background-color: #0a0a0a;
+    background-color: var(--secondary-bg);
+    transition: background-color 0.3s ease;
 }
 
 .section-title {
-    color: white;
+    color: var(--text-color);
     font-size: 3rem;
     text-align: center;
     margin-bottom: 60px;
     font-weight: 800;
     letter-spacing: -1px;
+    transition: color 0.3s ease;
 }
 
 .product-grid {
@@ -544,9 +613,10 @@ nav ul li a:hover::after {
 
 /* Footer */
 footer {
-    background-color: black;
+    background-color: var(--nav-bg);
     padding: 80px 50px 20px;
-    border-top: 1px solid #222;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 .footer-content {
